@@ -39,7 +39,8 @@ jobs:
         draft: false
         prerelease: false
         release_name: v1.0.0
-        tag_name: ${{ github.ref }}
+        tag_name: v1.0.0
+        # tag_name: ${{ github.ref }}
         # body_path: CHANGELOG.md
       env:
         GITHUB_TOKEN: ${{ github.token }}
