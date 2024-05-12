@@ -18,9 +18,12 @@ await File.WriteAllTextAsync(@"C:\Users\anoba\Downloads\small.txt",
 
 try
 {
-    // var rootDir = "Y:\\X";
+#if DEBUG
+    var rootDir = "Y:\\X";
+#else
     var rootDir = AppContext.BaseDirectory.TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar,
     Path.VolumeSeparatorChar);
+#endif
     Console.WriteLine($"扫描目录：{rootDir}");
     var outputDir = Path.Combine(rootDir, $"Bakabase.Tool.FixFileMoverPadding.Fixed").TrimEnd(
         Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar,

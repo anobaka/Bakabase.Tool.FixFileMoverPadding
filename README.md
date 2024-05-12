@@ -1,2 +1,2 @@
 # Bakabase.Tool.FixFileMoverPadding
-修复所有收到 https://github.com/anobaka/InsideWorld/issues/500 影响的文件
+修复所有受到 https://github.com/anobaka/InsideWorld/issues/500 影响的文件
