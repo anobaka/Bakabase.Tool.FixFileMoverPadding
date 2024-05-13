@@ -49,12 +49,20 @@ jobs:
       uses: jossef/action-latest-release-info@v1.2.1
       env:
         GITHUB_TOKEN: ${{ github.token }}
-    - name: upload windows artifact
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
+    # - name: upload windows artifact
+    #   uses: actions/upload-release-asset@v1
+    #   env:
+    #     GITHUB_TOKEN: ${{ github.token }}
+    #   with:
+    #     upload_url: ${{ steps.latest_release_info.outputs.upload_url }}
+    #     asset_path: ./publish/Bakabase.Tool.FixFileMoverPadding.exe
+    #     asset_name: Bakabase.Tool.FixFileMoverPadding.win-x64.exe
+    #     asset_content_type: application/zip
+    - name: Upload binaries to release
+      uses: svenstaro/upload-release-action@v2
       with:
-        upload_url: ${{ steps.latest_release_info.outputs.upload_url }}
-        asset_path: ./publish/Bakabase.Tool.FixFileMoverPadding.exe
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: ./publish/Bakabase.Tool.FixFileMoverPadding.exe
         asset_name: Bakabase.Tool.FixFileMoverPadding.win-x64.exe
-        asset_content_type: application/zip
+        overwrite: true
+        tag: v1.0.0
